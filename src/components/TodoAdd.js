@@ -7,7 +7,7 @@ function TodoAdd({ app_func_AddNewTodoItemToList }) {
    
     const handleSubmit = e => {
      e.preventDefault();
-     
+
       if (!value) return;
 
       app_func_AddNewTodoItemToList(value);
@@ -23,6 +23,7 @@ function TodoAdd({ app_func_AddNewTodoItemToList }) {
           type="text"
           className="input"
           value={value}
+          placeholder="enter task"
           onChange={e => setValue(e.target.value)}
         />
 

@@ -45,18 +45,33 @@ function App() {
 
               <div className="todo-list">
                 {
-                  //By using the JavaScript method, map(), you will be able to create a new array of items 
-                  //by mapping over the todos list from state 
-                  //and displaying them each todo by index.
-                  us_todolist.map((eachtodoitem, index) => (
-                                              <Todo
+                    //By using the JavaScript method, map(), you will be able to create a new array of items 
+                    //by mapping over the todos list from state 
+                    //and displaying them each todo by index.
+                    us_todolist.map((eachtodoitem, index) => (
+                                                                                      
+                                             /*  <Todo
                                                 key={index}
                                                 index={index}
                                                 singleTodoItem={eachtodoitem}
                                                 app_update_CurrTodoItemToList={APP_update_CurrTodoItemToList}
                                                 app_delete_CurrTodoItemFromList={APP_delete_CurrTodoItemFromList}
-                                              />
-                                            ))                                     
+                                              /> */
+                                              
+
+                                              (
+                                              <div className="todo"style={{ textDecoration: eachtodoitem.isCompleted ? "line-through" : "" }}>
+            
+                                                  <b>{eachtodoitem.task}</b>-{eachtodoitem.isCompleted?"DONE":"WORKING"}
+                                              
+                                                  <div>
+                                                      <button onClick={() => APP_update_CurrTodoItemToList(index)}>Complete</button>
+                                                      <button onClick={() => APP_delete_CurrTodoItemFromList(index)}>x</button>
+                                                  </div>
+                                              </div>
+                                              )
+
+                                            ))                                  
                 }
 
               <TodoAdd app_func_AddNewTodoItemToList={APP_add_NewTodoItemToList} />
